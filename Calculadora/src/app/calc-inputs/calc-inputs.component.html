@@ -1,0 +1,21 @@
+<div class="calc-container">
+    <h2>Calculadora</h2>
+    <div class="row">
+      <div class="input-box  my-2">
+        <input type="text" [value]="primerNro" (input)="updateFirstNumber($event)">
+        <span>Primer Nro</span>
+      </div>
+      <div class="input-box  my-2">
+        <input type="text" [value]="segundoNro" (input)="updateSecondNumber($event)">
+        <span>Segundo Nro</span>
+      </div>
+      <div class="result-container">
+        <span class="result">{{ resultado }}</span>
+      </div>
+  
+    </div>
+    <!-- Recibo el emmiter -->
+    <!-- [variableHijo]=variablePadre -->
+     <app-calc-operations [primerNroRecibido]="primerNro" [segundoNroRecibido]="segundoNro"
+     (operationData)=" showResult($event)" (cleanInputs)="cleanResult()" ></app-calc-operations>
+  </div>
